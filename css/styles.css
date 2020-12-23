@@ -1,0 +1,44 @@
+:root {
+  --start-instructions-buttons: #146eb4;
+  --feed-play-sleep-buttons: #ff9900;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+#body{
+
+}
+
+h2 {
+  text-align: center;
+}
+
+#main {
+  display: flex;
+  
+}
+
+#start, #instructions {
+  display: inline;
+  margin: 10px;
+}
+
+#timer, #age {
+  display: inline;
+  justify-content: flex-start
+  
+}
+
+#pikachu {
+  padding-top: 10px;
+  height: 150px;
+  width: 100px;
+  background: #ffffff;
+  display: flex;
+  margin: 0 auto;
+}
+
+#feed, #play, #sleep {
+  margin: 5px;
+}
