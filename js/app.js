@@ -5,6 +5,10 @@ let newPet = null;
 let feedTimer = 0;
 let sleepinessTimer = 0;
 let boredomTimer = 0;
+let name = null;
+
+name = prompt("Enter the name of your pet: ");
+$("#pet-name").append(name);
 
 // Update timer and age during game
 function renderStats() {
