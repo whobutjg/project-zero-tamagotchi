@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- MAIN CSS -->
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
   <!-- MAIN JS -->
   <script src="/js/app.js" defer></script>
   <!-- jQuery -->
@@ -12,23 +15,25 @@
   <title>Project-Zero</title>
 </head>
 <body>
-<h2 id="pet-name"></h2>
-  <section id="main">
+  <main>
+    <h2 id="pet-name"></h2>
+  <section id="main-buttons">
     <button id="start">Start</button>
     <button id="instructions">How-To-Play</button>
   </section>
   <h3 id="timer">Time:</h3>
   <span id="age">Age:</span>
   <section id="tamagotchi">
-    <img id="pikachu" src="/pikachu2.png"/>
+    <img id="pikachu" class="pikachuMove" src="/images/pikachu1.gif"/>
+    <button id="feedme">Feed</button>
+    <button id="play">Play</button>
+    <button id="sleep">Sleep</button>
   </section>
   <section id="game-buttons">
     <span id="feedtimer"></span>
     <span id="playtimer"></span>
     <span id="sleeptimer"></span>
-    <button id="feedme">Feed</button>
-    <button id="play">Play</button>
-    <button id="sleep">Sleep</button>
   </section>
+</main>
 </body>
 </html>

@@ -2,45 +2,53 @@
 let timer = 0;
 let age = 0;
 let newPet = null;
-let feedTimer = 0;
-let sleepinessTimer = 0;
-let boredomTimer = 0;
-let name = null;
+let petName = null;
 
-name = prompt("Enter the name of your pet: ");
-$("#pet-name").append(name);
+$('#tamagotchi').hide();
+
+const howToPlay = $("#instructions");
+$(howToPlay).on('click', function() {
+  alert("To play choose your character and characters name. Your character will age periodically");
+})
 
 // Update timer and age during game
 function renderStats() {
   $("#timer").text(`Time: ${timer}`);
   $("#age").text(`Age: ${age}`);
-  $("#feedtimer").text(`Feed Me: ${feedTimer}`);
-  $("#sleeptimer").text(`I'm Sleepy: ${sleepinessTimer}`);
-  $("#playtimer").text(`I'm Bored: ${boredomTimer}`);
-}
+  $("#feedtimer").text(`Feed Me: ${newPet.hunger}`);
+  $("#sleeptimer").text(`I'm Sleepy: ${newPet.sleepiness}`);
+  $("#playtimer").text(`I'm Bored: ${newPet.boredom}`);
+};
 
 // Counter function to increment age of character and time duration played
 function startTimer() {
   const counter = setInterval(function() {
     timer++;
-    if(timer % 8 === 0){
+    if(timer % 15 === 0){
       age++;
     }
     if(timer % 10 === 0) {
-      feedTimer++;
+      newPet.hunger++;
     }
     if(timer % 20 === 0) {
-      sleepinessTimer++;
+      newPet.sleepiness++;
     }
     if(timer % 30 === 0) {
-      boredomTimer++;
+      newPet.boredom++;
     }
-    // if (feedTimer || sleepinessTimer || boredomTimer == 2) {
+    // if (newPet.hunger === 10 || newPet.sleepiness === 10 || newPet.boredom === 10) {
     //   alert('GAME OVER! =(');
-    // } 
-      renderStats();
+    //   const playAgain = prompt('Would you like to play again?')
+    //   if (playAgain === "yes") {
+    //     petName;
+    //   } else {
+    //     alert('Better luck next time...');
+    //   }
+    // }
+    renderStats();
+    
   }, 1000);
-}
+};
 
 // Main tamagotchi class
 class Tamagotchi {
@@ -54,6 +62,9 @@ class Tamagotchi {
 // Start game function to begin playing
 const startGame = $("#start");
 $(startGame).on('click', function() {
+  petName = prompt("Enter the name of your pet: ");
+  $("#pet-name").append(petName);
+  $("#tamagotchi").show();
   newPet = new Tamagotchi();
   console.log(newPet);
   startTimer();
@@ -62,18 +73,24 @@ $(startGame).on('click', function() {
 // Button handlers to decrement values on click
 const feedMeBtn = $("#feedme");
 $(feedMeBtn).on('click', function() {
-  feedTimer--;
+  if(newPet.hunger > 0) {
+    newPet.hunger--;
+  }
 });
 
 const playBtn = $("#play");
 $(playBtn).on('click', function() {
-  boredomTimer--;
+  if(newPet.boredom > 0) {
+    newPet.boredom--;
+  }
 });
 
 const sleepBtn = $("#sleep");
 $(sleepBtn).on('click', function() {
-  sleepinessTimer--;
-})
+  if(newPet.sleepiness > 0) {
+    newPet.sleepiness--;
+  }
+});
 
 
 
