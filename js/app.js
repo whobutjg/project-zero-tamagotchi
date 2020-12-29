@@ -8,7 +8,7 @@ $('#tamagotchi').hide();
 
 const howToPlay = $("#instructions");
 $(howToPlay).on('click', function() {
-  alert("To play choose your character and characters name. Your character will age periodically");
+  alert("To play choose your character and characters name. Your character will age periodically and it's hunger, boredom, and sleepiness will continue to go up. Interact with your charcter to keep it's levels low. If any one of the meters should reach 10..game over!");
 })
 
 // Update timer and age during game
@@ -65,6 +65,7 @@ $(startGame).on('click', function() {
   petName = prompt("Enter the name of your pet: ");
   $("#pet-name").append(petName);
   $("#tamagotchi").show();
+  $("#main-buttons").toggleClass();
   newPet = new Tamagotchi();
   console.log(newPet);
   startTimer();
