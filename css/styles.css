@@ -8,8 +8,13 @@
 
 body {
   background-color: steelblue;
+  text-align: center;
 }
 
+#home-logo {
+  margin-top: 20px;
+  width: 250px;
+}
 
 h2 {
   text-align: center;
