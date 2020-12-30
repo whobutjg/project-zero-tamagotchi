@@ -65,10 +65,17 @@ h2 {
 
 #pikachu {
   position: absolute;
+  left: 250px;
   bottom: 100px;
   padding-top: 10px;
   height: 150px;
   width: 100px;
+}
+
+#charizard {
+  position: absolute;
+  left: 340px;
+  bottom: 150px;
 }
 
 .pikachuMove {

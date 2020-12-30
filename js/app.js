@@ -4,12 +4,14 @@ let age = 0;
 let newPet = null;
 let petName = null;
 
-$('#tamagotchi').hide();
+$("#tamagotchi").hide();
 
 const howToPlay = $("#instructions");
-$(howToPlay).on('click', function() {
-  alert("To play choose your character and characters name. Your character will age periodically and it's hunger, boredom, and sleepiness will continue to go up. Interact with your charcter to keep it's levels low. If any one of the meters should reach 10..game over!");
-})
+$(howToPlay).on("click", function () {
+  alert(
+    "To play choose your character and characters name. Your character will age periodically and it's hunger, boredom, and sleepiness will continue to go up. Interact with your charcter to keep it's levels low. If any one of the meters should reach 10..game over!"
+  );
+});
 
 // Update timer and age during game
 function renderStats() {
@@ -18,22 +20,22 @@ function renderStats() {
   $("#feedtimer").val(`${newPet.hunger}`);
   $("#sleeptimer").val(`${newPet.sleepiness}`);
   $("#playtimer").val(`${newPet.boredom}`);
-};
+}
 
 // Counter function to increment age of character and time duration played
 function startTimer() {
-  const counter = setInterval(function() {
+  const counter = setInterval(function () {
     timer++;
-    if(timer % 50 === 0){
+    if (timer % 50 === 0) {
       age++;
     }
-    if(timer % 5 === 0) {
+    if (timer % 5 === 0) {
       newPet.hunger++;
     }
-    if(timer % 7 === 0) {
+    if (timer % 7 === 0) {
       newPet.sleepiness++;
     }
-    if(timer % 9 === 0) {
+    if (timer % 9 === 0) {
       newPet.boredom++;
     }
     //  {
@@ -46,9 +48,8 @@ function startTimer() {
     //   }
     // }
     renderStats();
-    
   }, 1000);
-};
+}
 
 // Main tamagotchi class
 class Tamagotchi {
@@ -57,60 +58,64 @@ class Tamagotchi {
     this.sleepiness = 0;
     this.boredom = 0;
   }
-};
+}
 
 // Start game function to begin playing
 const startGame = $("#start");
-$(startGame).on('click', function() {
+$(startGame).on("click", function () {
   petName = $("#input").val();
-  if ($('#input').val() === '') {
+  if ($("#input").val() === "") {
   } else {
-  $("#pet-name").text(petName);
-  $("#tamagotchi").show();
-  $("#main-buttons").toggleClass();
-  newPet = new Tamagotchi();
-  console.log(newPet);
-  $("#main-buttons").hide();
-  startTimer();
+    $("#pet-name").text(petName);
+    $("#tamagotchi").show();
+    $("#main-buttons").toggleClass();
+    newPet = new Tamagotchi();
+    console.log(newPet);
+    $("#main-buttons").hide();
+    startTimer();
   }
 });
 
 // Button handlers to decrement values on click
 const feedMeBtn = $("#feedme");
-$(feedMeBtn).on('click', function() {
-  if(newPet.hunger > 0) {
+$(feedMeBtn).on("click", function () {
+  if (newPet.hunger > 0) {
     $("#pikachu").attr("src", "/images/pikachu2.gif");
     newPet.hunger--;
-    setTimeout(function() {
+    setTimeout(function () {
       $("#pikachu").attr("src", "/images/pikachu1.gif");
-    },1500);
+    }, 1500);
   }
 });
 
 const playBtn = $("#play");
-$(playBtn).on('click', function() {
-  if(newPet.boredom > 0) {
+$(playBtn).on("click", function () {
+  if (newPet.boredom > 0) {
     $("#pikachu").attr("src", "/images/pikachu4.gif");
     newPet.boredom--;
-    setTimeout(function() {
+    setTimeout(function () {
       $("#pikachu").attr("src", "/images/pikachu1.gif");
-    },1500);
+    }, 1500);
   }
 });
 
 const sleepBtn = $("#sleep");
-$(sleepBtn).on('click', function() {
-  if(newPet.sleepiness > 0) {
+$(sleepBtn).on("click", function () {
+  if (newPet.sleepiness > 0) {
     $("#pikachu").attr("src", "/images/pikachu5.gif");
     newPet.sleepiness--;
-    setTimeout(function() {
+    setTimeout(function () {
       $("#pikachu").attr("src", "/images/pikachu1.gif");
-    },1500);
+    }, 1500);
   }
 });
 
-// const gameOver = setInterval(() => {
-//   if (newPet.hunger === 10 || newPet.sleepiness === 10 || newPet.boredom === 10)
-// }, interval);
-
-
+const gameOver = setInterval(() => {
+  if (newPet.hunger >= 2 || newPet.sleepiness >= 2 || newPet.boredom >= 2) {
+    $("#pikachu").attr("src", "/images/rip.gif");
+    $("#pikachu").removeClass("pikachuMove");
+    let charizard = $(`<img id="charizard" src="/images/charizard.gif">`);
+    $("#character").append(charizard);
+    clearInterval(gameOver);
+  }
+}, 100);
