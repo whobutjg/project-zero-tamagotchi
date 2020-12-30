@@ -6,14 +6,22 @@
   justify-content: center;
 }
 
+body {
+  background-color: steelblue;
+}
+
 
 h2 {
   text-align: center;
+  color: white;
 }
 
 #main {
   display: flex;
-  
+}
+
+#home-logo {
+  background-color: none;
 }
 
 #start, #instructions {
@@ -21,9 +29,20 @@ h2 {
   margin: 10px;
 }
 
-#timer, #age {
+#timer-age {
   display: inline;
   justify-content: flex-start;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  color: white;
+  background-color: #232f3e9a;
+  width: 130px;
+  border: 3px solid white;
+}
+
+#timer, #age {
+  margin: 5px;
 }
 
 #tamagotchi {
@@ -36,7 +55,7 @@ h2 {
   height: 600px;
   align-items: flex-end;
   border-radius: 5px;
-  border: 3px solid #232f3e;
+  border: 4px solid #232f3e;
 }
 
 #pikachu {
@@ -56,18 +75,26 @@ h2 {
 }
 
 #feedme, #play, #sleep {
-  position: relative;
   width: 150px;
   height: 30px;
-  margin: 30px;
+  margin-top: 2px;
   top: 25px;
   border-radius: 5px;
   color: white;
   background-color: var(--start-instructions-buttons);
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
-  
-  
+  margin: 0px;
+  outline: none;
+}
+
+
+.timer-meter {
+  margin-bottom: 5px;
+  text-align: center;
+  position: relative;
+  bottom: 5px;
+  flex-direction: row;
 }
 
 @keyframes pikaMove {

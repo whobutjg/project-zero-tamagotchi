@@ -15,24 +15,47 @@
   <title>Project-Zero</title>
 </head>
 <body>
+
   <main>
+    <img id="home-logo" src=""/>
     <h2 id="pet-name"></h2>
+
   <section id="main-buttons">
     <button id="start">Start</button>
+    <input id="input" placeholder="Name" />
     <button id="instructions">How-To-Play</button>
   </section>
 
   <section id="tamagotchi">
-    <h3 id="timer">Time:</h3>
+    <div id="timer-age">
     <span id="age">Age:</span>
+    <h4 id="timer">Time:</h4>
+  </div>
     <img id="pikachu" class="pikachuMove" src="/images/pikachu1.gif"/>
-    <span id="feedtimer"></span>
-    <button id="feedme">Feed</button>
-    <span id="playtimer"></span>
-    <button id="play">Play</button>
-    <span id="sleeptimer"></span>
-    <button id="sleep">Sleep</button>
+
+    <span class="timer-meter">
+      <meter min="0" max="10" low="2.5" high="7.5" optimum="0" value="0"  id="feedtimer" >
+      </meter>
+      <button id="feedme">Feed</button>
+    </span>
+  
+    
+    <span class="timer-meter">
+      <meter min="0" max="10" low="2.5" high="7.5" optimum="0" value="0" id="playtimer">
+      </meter>
+      <button id="play">Play</button>
+    </span>
+
+    
+    <span class="timer-meter">
+      <meter min="0" max="10" low="2.5" high="7.5" optimum="0" value="0" id="sleeptimer" >
+      </meter>
+      <button id="sleep">Sleep</button>
+    </span>
+
   </section>
+
 </main>
+
 </body>
 </html>

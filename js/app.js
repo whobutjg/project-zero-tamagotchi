@@ -15,28 +15,28 @@ $(howToPlay).on('click', function() {
 function renderStats() {
   $("#timer").text(`Time: ${timer}`);
   $("#age").text(`Age: ${age}`);
-  $("#feedtimer").text(`Feed Me: ${newPet.hunger}`);
-  $("#sleeptimer").text(`I'm Sleepy: ${newPet.sleepiness}`);
-  $("#playtimer").text(`I'm Bored: ${newPet.boredom}`);
+  $("#feedtimer").val(`${newPet.hunger}`);
+  $("#sleeptimer").val(`${newPet.sleepiness}`);
+  $("#playtimer").val(`${newPet.boredom}`);
 };
 
 // Counter function to increment age of character and time duration played
 function startTimer() {
   const counter = setInterval(function() {
     timer++;
-    if(timer % 15 === 0){
+    if(timer % 50 === 0){
       age++;
     }
-    if(timer % 10 === 0) {
+    if(timer % 5 === 0) {
       newPet.hunger++;
     }
-    if(timer % 20 === 0) {
+    if(timer % 7 === 0) {
       newPet.sleepiness++;
     }
-    if(timer % 30 === 0) {
+    if(timer % 9 === 0) {
       newPet.boredom++;
     }
-    // if (newPet.hunger === 10 || newPet.sleepiness === 10 || newPet.boredom === 10) {
+    // if (newPet.hunger === 2 || newPet.sleepiness === 2 || newPet.boredom === 2) {
     //   alert('GAME OVER! =(');
     //   const playAgain = prompt('Would you like to play again?')
     //   if (playAgain === "yes") {
@@ -62,20 +62,28 @@ class Tamagotchi {
 // Start game function to begin playing
 const startGame = $("#start");
 $(startGame).on('click', function() {
-  petName = prompt("Enter the name of your pet: ");
-  $("#pet-name").append(petName);
+  petName = $("#input").val();
+  if ($('#input').val() === '') {
+  } else {
+  $("#pet-name").text(petName);
   $("#tamagotchi").show();
   $("#main-buttons").toggleClass();
   newPet = new Tamagotchi();
   console.log(newPet);
+  $("#main-buttons").hide();
   startTimer();
+  }
 });
 
 // Button handlers to decrement values on click
 const feedMeBtn = $("#feedme");
 $(feedMeBtn).on('click', function() {
   if(newPet.hunger > 0) {
+    $("#pikachu").attr("src", "/images/pikachu2.gif");
     newPet.hunger--;
+    setTimeout(function() {
+      $("#pikachu").attr("src", "/images/pikachu1.gif");
+    },1500);
   }
 });
 
