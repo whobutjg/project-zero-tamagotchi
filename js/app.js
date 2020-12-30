@@ -36,7 +36,7 @@ function startTimer() {
     if(timer % 9 === 0) {
       newPet.boredom++;
     }
-    // if (newPet.hunger === 2 || newPet.sleepiness === 2 || newPet.boredom === 2) {
+    //  {
     //   alert('GAME OVER! =(');
     //   const playAgain = prompt('Would you like to play again?')
     //   if (playAgain === "yes") {
@@ -90,17 +90,27 @@ $(feedMeBtn).on('click', function() {
 const playBtn = $("#play");
 $(playBtn).on('click', function() {
   if(newPet.boredom > 0) {
+    $("#pikachu").attr("src", "/images/pikachu4.gif");
     newPet.boredom--;
+    setTimeout(function() {
+      $("#pikachu").attr("src", "/images/pikachu1.gif");
+    },1500);
   }
 });
 
 const sleepBtn = $("#sleep");
 $(sleepBtn).on('click', function() {
   if(newPet.sleepiness > 0) {
+    $("#pikachu").attr("src", "/images/pikachu5.gif");
     newPet.sleepiness--;
+    setTimeout(function() {
+      $("#pikachu").attr("src", "/images/pikachu1.gif");
+    },1500);
   }
 });
 
-
+// const gameOver = setInterval(() => {
+//   if (newPet.hunger === 10 || newPet.sleepiness === 10 || newPet.boredom === 10)
+// }, interval);
 
 
