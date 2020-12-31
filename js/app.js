@@ -7,10 +7,10 @@ let petName = null;
 $("#tamagotchi").hide();
 
 const howToPlay = $("#instructions");
-$(howToPlay).on("click", function () {
-  alert(
-    "To play choose your character and characters name. Your character will age periodically and it's hunger, boredom, and sleepiness will continue to go up. Interact with your charcter to keep it's levels low. If any one of the meters should reach 10..game over!"
-  );
+$(howToPlay).on('click', function () {
+  $("body").show(`
+    <p>To play choose your character and characters name. Your character will age periodically and it's hunger, boredom, and sleepiness will continue to go up. Interact with your charcter to keep it's levels low. If any one of the meters should reach 10..game over!</p>
+  `);
 });
 
 // Update timer and age during game
@@ -25,28 +25,22 @@ function renderStats() {
 // Counter function to increment age of character and time duration played
 function startTimer() {
   const counter = setInterval(function () {
+    if (newPet.hunger >= 10 || newPet.sleepiness >= 10 || newPet.boredom >= 10) {
+      clearInterval(counter);
+    }
     timer++;
     if (timer % 50 === 0) {
       age++;
     }
-    if (timer % 5 === 0) {
+    if (timer % 15 === 0) {
       newPet.hunger++;
     }
-    if (timer % 7 === 0) {
+    if (timer % 30 === 0) {
       newPet.sleepiness++;
     }
-    if (timer % 9 === 0) {
+    if (timer % 45 === 0) {
       newPet.boredom++;
     }
-    //  {
-    //   alert('GAME OVER! =(');
-    //   const playAgain = prompt('Would you like to play again?')
-    //   if (playAgain === "yes") {
-    //     petName;
-    //   } else {
-    //     alert('Better luck next time...');
-    //   }
-    // }
     renderStats();
   }, 1000);
 }
@@ -73,6 +67,7 @@ $(startGame).on("click", function () {
     console.log(newPet);
     $("#main-buttons").hide();
     startTimer();
+    $("#home-logo").css("margin-top", "20px");
   }
 });
 
@@ -110,12 +105,18 @@ $(sleepBtn).on("click", function () {
   }
 });
 
+// Game over function to check status of meters and end game if any should reach designated target
 const gameOver = setInterval(() => {
-  if (newPet.hunger >= 2 || newPet.sleepiness >= 2 || newPet.boredom >= 2) {
+  if (newPet.hunger >= 1 || newPet.sleepiness >= 1 || newPet.boredom >= 1) {
     $("#pikachu").attr("src", "/images/rip.gif");
     $("#pikachu").removeClass("pikachuMove");
     let charizard = $(`<img id="charizard" src="/images/charizard.gif">`);
     $("#character").append(charizard);
+    let resetButton = $(`<button id="resetButton">Reset</button>`);
+    $("#character").prepend(resetButton);
+    $("#resetButton").on("click", function () {
+      location.reload();
+    });
     clearInterval(gameOver);
   }
 }, 100);

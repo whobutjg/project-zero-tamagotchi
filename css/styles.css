@@ -12,7 +12,7 @@ body {
 }
 
 #home-logo {
-  margin-top: 20px;
+  margin-top: 250px;
   width: 250px;
 }
 
@@ -32,6 +32,11 @@ h2 {
 #start, #instructions {
   display: inline;
   margin: 10px;
+  background-color: var(--feed-play-sleep-buttons);
+  color: white;
+  width: 100px;
+  border-radius: 5px;
+  outline: none;
 }
 
 #timer-age {
@@ -86,6 +91,16 @@ h2 {
   animation-direction: alternate;
 }
 
+#resetButton {
+  position: absolute;
+  border-radius: 2px;
+  background-color: red;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  left: 325px;
+  top: 150px;
+}
+
 #feedme, #play, #sleep {
   width: 150px;
   height: 30px;
@@ -133,5 +148,9 @@ h2 {
     left: 50px;
     bottom: 190px;
   }
+
+}
+
+@media(max-width: 600px) {
 
 }
