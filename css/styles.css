@@ -16,6 +16,10 @@ body {
   width: 250px;
 }
 
+#how-to-play {
+  color: white;
+}
+
 h2 {
   text-align: center;
   color: white;

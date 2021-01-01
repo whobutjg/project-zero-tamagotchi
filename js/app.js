@@ -9,9 +9,8 @@ $("#tamagotchi").hide();
 
 const howToPlay = $("#instructions");
 $(howToPlay).on('click', function () {
-  $("body").toggleClass(`
-    <p class="how-to-play">To play choose your character and characters name. Your character will age periodically and it's hunger, boredom, and sleepiness will continue to go up. Interact with your charcter to keep it's levels low. If any one of the meters should reach 10..game over!</p>
-  `);
+    $("#how-to-play").toggle();
+    
 });
 
 // Update timer and age during game
@@ -114,6 +113,7 @@ const resetGameFunc = () => {
   $("#charizard").remove();
   $("#pikachu").attr("src", "/images/pikachu1.gif");
   $("#pikachu").addClass("pikachuMove");
+  $("#home-logo").css("margin-top", "250px");
 };
 
 // Game over function
