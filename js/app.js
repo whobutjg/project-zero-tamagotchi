@@ -3,13 +3,14 @@ let timer = 0;
 let age = 0;
 let newPet = null;
 let petName = null;
+let counter = 0;
 
 $("#tamagotchi").hide();
 
 const howToPlay = $("#instructions");
 $(howToPlay).on('click', function () {
-  $("body").show(`
-    <p>To play choose your character and characters name. Your character will age periodically and it's hunger, boredom, and sleepiness will continue to go up. Interact with your charcter to keep it's levels low. If any one of the meters should reach 10..game over!</p>
+  $("body").toggleClass(`
+    <p class="how-to-play">To play choose your character and characters name. Your character will age periodically and it's hunger, boredom, and sleepiness will continue to go up. Interact with your charcter to keep it's levels low. If any one of the meters should reach 10..game over!</p>
   `);
 });
 
@@ -20,19 +21,19 @@ function renderStats() {
   $("#feedtimer").val(`${newPet.hunger}`);
   $("#sleeptimer").val(`${newPet.sleepiness}`);
   $("#playtimer").val(`${newPet.boredom}`);
-}
+};
 
 // Counter function to increment age of character and time duration played
 function startTimer() {
-  const counter = setInterval(function () {
-    if (newPet.hunger >= 10 || newPet.sleepiness >= 10 || newPet.boredom >= 10) {
-      clearInterval(counter);
+    counter = setInterval(function () {
+    if (newPet.hunger >= 2 || newPet.sleepiness >= 2 || newPet.boredom >= 2) {
+      gameOver();
     }
     timer++;
     if (timer % 50 === 0) {
       age++;
     }
-    if (timer % 15 === 0) {
+    if (timer % 5 === 0) {
       newPet.hunger++;
     }
     if (timer % 30 === 0) {
@@ -47,7 +48,7 @@ function startTimer() {
 
 // Main tamagotchi class
 class Tamagotchi {
-  constructor(hunger, sleepiness, boredom) {
+  constructor() {
     this.hunger = 0;
     this.sleepiness = 0;
     this.boredom = 0;
@@ -55,21 +56,22 @@ class Tamagotchi {
 }
 
 // Start game function to begin playing
-const startGame = $("#start");
-$(startGame).on("click", function () {
+$("#start").on("click", startGame);
+function startGame() {
   petName = $("#input").val();
   if ($("#input").val() === "") {
   } else {
+    timer = 0;
     $("#pet-name").text(petName);
     $("#tamagotchi").show();
-    $("#main-buttons").toggleClass();
     newPet = new Tamagotchi();
+    renderStats();
     console.log(newPet);
     $("#main-buttons").hide();
     startTimer();
     $("#home-logo").css("margin-top", "20px");
   }
-});
+}
 
 // Button handlers to decrement values on click
 const feedMeBtn = $("#feedme");
@@ -105,18 +107,23 @@ $(sleepBtn).on("click", function () {
   }
 });
 
-// Game over function to check status of meters and end game if any should reach designated target
-const gameOver = setInterval(() => {
-  if (newPet.hunger >= 1 || newPet.sleepiness >= 1 || newPet.boredom >= 1) {
+const resetGameFunc = () => {
+  $("#tamagotchi").hide();
+  $("#main-buttons").show();
+  $("#resetButton").remove();
+  $("#charizard").remove();
+  $("#pikachu").attr("src", "/images/pikachu1.gif");
+  $("#pikachu").addClass("pikachuMove");
+};
+
+// Game over function
+const gameOver = () => {
     $("#pikachu").attr("src", "/images/rip.gif");
     $("#pikachu").removeClass("pikachuMove");
     let charizard = $(`<img id="charizard" src="/images/charizard.gif">`);
     $("#character").append(charizard);
     let resetButton = $(`<button id="resetButton">Reset</button>`);
     $("#character").prepend(resetButton);
-    $("#resetButton").on("click", function () {
-      location.reload();
-    });
-    clearInterval(gameOver);
-  }
-}, 100);
+    clearInterval(counter);
+    $("#resetButton").on("click", resetGameFunc);
+};
