@@ -50,10 +50,10 @@ function startTimer() {
     }
     setTime();
     timer++;
-    if (timer % 50 === 0) {
+    if (timer % 1 === 0) {
       age++;
     }
-    if (timer % 15 === 0) {
+    if (timer % 1 === 0) {
       newPet.hunger++;
     }
     if (timer % 45 === 0) {
@@ -82,6 +82,7 @@ function startGame() {
   if ($("#input").val() === "") {
   } else {
     timer = 0;
+    age = 0;
     $("#pet-name").text(petName);
     $("#tamagotchi").show();
     newPet = new Tamagotchi();
@@ -91,8 +92,7 @@ function startGame() {
     startTimer();
     $("#home-logo").css("margin-top", "20px");
   }
-}
-
+};
 
 // Button handlers to decrement values on click
 const feedMeBtn = $("#feedme");
