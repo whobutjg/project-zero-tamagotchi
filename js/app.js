@@ -1,9 +1,13 @@
-// Global variables for time, age, and creating a new pet
+// Global variables for time, age, counter, and creating a new pet
 let timer = 0;
 let age = 0;
 let newPet = null;
 let petName = null;
 let counter = 0;
+const minutesLabel = $("#minutes");
+const secondsLabel = $("#seconds");
+
+
 
 $("#tamagotchi").hide();
 
@@ -14,19 +18,36 @@ $(howToPlay).on('click', function () {
 
 // Update timer and age during game
 function renderStats() {
-  $("#timer").text(`Time: ${timer}`);
   $("#age").text(`Age: ${age}`);
   $("#feedtimer").val(`${newPet.hunger}`);
   $("#sleeptimer").val(`${newPet.sleepiness}`);
   $("#playtimer").val(`${newPet.boredom}`);
 };
 
-// Counter function to increment age of character and time duration played
+
+// Pad function
+function pad(val) {
+  const valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString;
+  } else {
+    return valString;
+  }
+};
+
+// 
+function setTime() {
+  secondsLabel.text(pad(timer%60));
+  minutesLabel.text(parseInt(timer/60));
+};
+
+// Counter function to increment age of character and time duration played, also checks if the characters meters have reached 10 to implement gameOver function
 function startTimer() {
-    counter = setInterval(function () {
+    counter = setInterval(function() {
     if (newPet.hunger >= 10 || newPet.sleepiness >= 10 || newPet.boredom >= 10) {
       gameOver();
     }
+    setTime();
     timer++;
     if (timer % 50 === 0) {
       age++;
