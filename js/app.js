@@ -11,6 +11,7 @@ const secondsLabel = $("#seconds");
 
 $("#tamagotchi").hide();
 
+// Instructions button event listener
 const howToPlay = $("#instructions");
 $(howToPlay).on('click', function () {
     $("#how-to-play").toggle();
@@ -35,7 +36,7 @@ function pad(val) {
   }
 };
 
-// 
+// Minute and second incrementer for timer
 function setTime() {
   secondsLabel.text(pad(timer%60));
   minutesLabel.text(parseInt(timer/60));
@@ -91,6 +92,7 @@ function startGame() {
     $("#home-logo").css("margin-top", "20px");
   }
 }
+
 
 // Button handlers to decrement values on click
 const feedMeBtn = $("#feedme");
