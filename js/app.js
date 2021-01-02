@@ -25,14 +25,14 @@ function renderStats() {
 // Counter function to increment age of character and time duration played
 function startTimer() {
     counter = setInterval(function () {
-    if (newPet.hunger >= 2 || newPet.sleepiness >= 2 || newPet.boredom >= 2) {
+    if (newPet.hunger >= 10 || newPet.sleepiness >= 10 || newPet.boredom >= 10) {
       gameOver();
     }
     timer++;
     if (timer % 50 === 0) {
       age++;
     }
-    if (timer % 5 === 0) {
+    if (timer % 15 === 0) {
       newPet.hunger++;
     }
     if (timer % 30 === 0) {
@@ -65,7 +65,7 @@ function startGame() {
     $("#tamagotchi").show();
     newPet = new Tamagotchi();
     renderStats();
-    console.log(newPet);
+    // console.log(newPet);
     $("#main-buttons").hide();
     startTimer();
     $("#home-logo").css("margin-top", "20px");
