@@ -65,7 +65,7 @@ h2 {
   width: 700px;
   height: 600px;
   align-items: flex-end;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 4px solid #232f3e;
 }
 
@@ -75,7 +75,7 @@ h2 {
   bottom: 100px;
   padding-top: 10px;
   height: 150px;
-  width: 100px;
+  width: 130px;
 }
 
 #charizard {
@@ -86,7 +86,7 @@ h2 {
 
 .pikachuMove {
   animation-name: pikaMove;
-  animation-duration: 12s;
+  animation-duration: 10s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-direction: alternate;
@@ -109,7 +109,7 @@ h2 {
   height: 30px;
   margin-top: 2px;
   top: 25px;
-  border-radius: 5px;
+  border-radius: 10px;
   color: white;
   background-color: var(--start-instructions-buttons);
   font-family: 'Roboto', sans-serif;

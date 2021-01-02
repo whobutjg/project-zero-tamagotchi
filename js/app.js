@@ -55,10 +55,10 @@ function startTimer() {
     if (timer % 15 === 0) {
       newPet.hunger++;
     }
-    if (timer % 30 === 0) {
+    if (timer % 45 === 0) {
       newPet.sleepiness++;
     }
-    if (timer % 45 === 0) {
+    if (timer % 30 === 0) {
       newPet.boredom++;
     }
     renderStats();
@@ -101,7 +101,7 @@ $(feedMeBtn).on("click", function () {
     setTimeout(function () {
       $("#pikachu").attr("src", "/images/pikachu1.gif");
     }, 1500);
-  }
+  } 
 });
 
 const playBtn = $("#play");
@@ -118,7 +118,7 @@ $(playBtn).on("click", function () {
 const sleepBtn = $("#sleep");
 $(sleepBtn).on("click", function () {
   if (newPet.sleepiness > 0) {
-    $("#pikachu").attr("src", "/images/pikachu5.gif");
+    $("#pikachu").attr("src", "/images/pikasleep.png");
     newPet.sleepiness--;
     setTimeout(function () {
       $("#pikachu").attr("src", "/images/pikachu1.gif");
