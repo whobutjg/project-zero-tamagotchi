@@ -10,7 +10,6 @@ $("#tamagotchi").hide();
 const howToPlay = $("#instructions");
 $(howToPlay).on('click', function () {
     $("#how-to-play").toggle();
-    
 });
 
 // Update timer and age during game
@@ -106,6 +105,7 @@ $(sleepBtn).on("click", function () {
   }
 });
 
+// Reset game function to remove game over animations and restore game starting animations
 const resetGameFunc = () => {
   $("#tamagotchi").hide();
   $("#main-buttons").show();
