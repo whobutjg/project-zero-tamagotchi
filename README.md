@@ -7,7 +7,7 @@
 # Gameplay:
 - (image)
 
-# Installion:
+# Installation:
 - No installation required to play.
 
 # Usage:
@@ -21,3 +21,6 @@
 
 # Technology:
 - Project-Zero was built using HTML, CSS, JavaScript/jQuery.
+
+# Demo:
+https://pages.git.generalassemb.ly/whobutjg/project-zero/
