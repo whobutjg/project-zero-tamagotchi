@@ -98,10 +98,10 @@ function startGame() {
 const feedMeBtn = $("#feedme");
 $(feedMeBtn).on("click", function () {
   if (newPet.hunger > 0) {
-    $("#pikachu").attr("src", "/images/pikachu2.gif");
+    $("#pikachu").attr("src", "images/pikachu2.gif");
     newPet.hunger--;
     setTimeout(function () {
-      $("#pikachu").attr("src", "/images/pikachu1.gif");
+      $("#pikachu").attr("src", "images/pikachu1.gif");
     }, 1500);
   } 
 });
@@ -109,10 +109,10 @@ $(feedMeBtn).on("click", function () {
 const playBtn = $("#play");
 $(playBtn).on("click", function () {
   if (newPet.boredom > 0) {
-    $("#pikachu").attr("src", "/images/pikachu4.gif");
+    $("#pikachu").attr("src", "images/pikachu4.gif");
     newPet.boredom--;
     setTimeout(function () {
-      $("#pikachu").attr("src", "/images/pikachu1.gif");
+      $("#pikachu").attr("src", "images/pikachu1.gif");
     }, 1500);
   }
 });
@@ -120,10 +120,10 @@ $(playBtn).on("click", function () {
 const sleepBtn = $("#sleep");
 $(sleepBtn).on("click", function () {
   if (newPet.sleepiness > 0) {
-    $("#pikachu").attr("src", "/images/pikasleep.png");
+    $("#pikachu").attr("src", "images/pikasleep.png");
     newPet.sleepiness--;
     setTimeout(function () {
-      $("#pikachu").attr("src", "/images/pikachu1.gif");
+      $("#pikachu").attr("src", "images/pikachu1.gif");
     }, 1500);
   }
 });
@@ -134,16 +134,16 @@ const resetGameFunc = () => {
   $("#main-buttons").show();
   $("#resetButton").remove();
   $("#charizard").remove();
-  $("#pikachu").attr("src", "/images/pikachu1.gif");
+  $("#pikachu").attr("src", "images/pikachu1.gif");
   $("#pikachu").addClass("pikachuMove");
   $("#home-logo").css("margin-top", "250px");
 };
 
 // Game over function
 const gameOver = () => {
-    $("#pikachu").attr("src", "/images/rip.gif");
+    $("#pikachu").attr("src", "images/rip.gif");
     $("#pikachu").removeClass("pikachuMove");
-    let charizard = $(`<img id="charizard" src="/images/charizard.gif">`);
+    let charizard = $(`<img id="charizard" src="images/charizard.gif">`);
     $("#character").append(charizard);
     let resetButton = $(`<button id="resetButton">Reset</button>`);
     $("#character").prepend(resetButton);
