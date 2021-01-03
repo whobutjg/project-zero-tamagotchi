@@ -56,7 +56,7 @@ function startTimer() {
     if (timer % 15 === 0) {
       newPet.hunger++;
     }
-    if (timer % 10 === 0) {
+    if (timer % 45 === 0) {
       newPet.sleepiness++;
     }
     if (timer % 30 === 0) {
