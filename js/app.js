@@ -50,13 +50,13 @@ function startTimer() {
     }
     setTime();
     timer++;
-    if (timer % 1 === 0) {
+    if (timer % 50 === 0) {
       age++;
     }
-    if (timer % 1 === 0) {
+    if (timer % 15 === 0) {
       newPet.hunger++;
     }
-    if (timer % 45 === 0) {
+    if (timer % 10 === 0) {
       newPet.sleepiness++;
     }
     if (timer % 30 === 0) {

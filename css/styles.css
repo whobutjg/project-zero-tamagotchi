@@ -50,6 +50,7 @@ h2 {
   background-color: #232f3e9a;
   width: 130px;
   border: 3px solid white;
+  border-radius: 10px;
 }
 
 #timer, #age {
@@ -74,8 +75,8 @@ h2 {
   left: 250px;
   bottom: 100px;
   padding-top: 10px;
-  height: 150px;
-  width: 130px;
+  height: 140px;
+  width: 105px;
 }
 
 #charizard {
@@ -134,26 +135,80 @@ h2 {
 
   25% {
     left: 100px;
-    bottom: 60px;
+    bottom: 65px;
   }
 
   50% {
-    left: 300px;
-    bottom: 150px;
+    left: 225px;
+    bottom: 125px;
   }
 
   75% {
-    left: 400px;
-    bottom: 100px;
+    left: 450px;
+    bottom: 65px;
   }
 
   to {
-    left: 50px;
-    bottom: 190px;
+    left: 575px;
+    bottom: 125px;
   }
 
 }
 
 @media(max-width: 600px) {
+  #tamagotchi {
+    width: 500px;
+    height: 400px;
+  }
 
+  #pikachu {
+    position: absolute;
+    width: 75px;
+    height: 100px;
+    left: 200px;
+    bottom: 75px;
+  }
+
+  #charizard {
+    position: absolute;
+    bottom: 115px;
+    left: 270px;
+    height: 80px;
+  }
+
+  #resetButton {
+    top: 150px;
+    left: 225px;
+    width: 75px;
+  }
+
+  #timer-age {
+    width: 110px;
+  }
+  
+  @keyframes pikaMove {
+    from {
+      left: 0px; 
+    }
+  
+    25% {
+      left: 100px;
+      bottom: 65px;
+    }
+  
+    50% {
+      left: 200px;
+      bottom: 125px;
+    }
+  
+    75% {
+      left: 300px;
+      bottom: 65px;
+    }
+  
+    to {
+      left: 400px;
+      bottom: 125px;
+    }
+  }
 }
