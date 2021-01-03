@@ -7,7 +7,7 @@
 # Gameplay:
 - (image)
 
-# Installion:
+# Installation:
 - No installation required to play.
 
 # Usage:
