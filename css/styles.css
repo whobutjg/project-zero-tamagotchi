@@ -61,7 +61,7 @@ h2 {
   display: flex;
   flex-direction: row;
   position: relative;
-  background: url("images/forest.jpg");
+  background: url("/images/forest.jpg");
   background-size: cover;
   width: 700px;
   height: 600px;
