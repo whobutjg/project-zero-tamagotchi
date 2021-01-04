@@ -17,7 +17,7 @@
 - V1 of Project-Zero...ongoing features and updates being added continuously. Feel free to fork this repo and make contributions. Open to all ideas and suggestions.
 
 ### Roadmap:
-- (image)
+![](projectzerowireframe.png)
 
 ### Technology:
 - Project-Zero was built using HTML, CSS, JavaScript & jQuery during winter break of 2020.
