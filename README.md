@@ -5,7 +5,7 @@
 - To play choose your character and characters name. Your character will age periodically and it's hunger, boredom, and sleepiness will continue to go up. Interact with your charcter to keep it's levels low by clicking on the feed, play, and sleep meter. If any one of the meters should reach 10..game over!
 
 ### Gameplay:
-- (image)
+![](images/screenshot.png)
 
 ### Installation:
 - No installation required to play. Just load the URL in your browser of choice.
